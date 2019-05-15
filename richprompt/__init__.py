@@ -1,1 +1,1 @@
-from .prompt import RichPrompts
+from .prompts import RichPrompts
