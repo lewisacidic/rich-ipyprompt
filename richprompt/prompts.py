@@ -2,11 +2,15 @@ from IPython.terminal.prompts import Prompts, Token
 import datetime
 import os
 
+from .timer import Timer
+
 
 class RichPrompts(Prompts):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, minimum_time_delta=5, **kwargs):
         super().__init__(*args, **kwargs)
         self.start_path = self.curpath()
+        self.minimum_time_delta = minimum_time_delta
+        Timer(self.shell).register()
 
     def vi_token(self):
         if (
