@@ -1,3 +1,13 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Copyright (c) 2019 Rich Lewis <opensource@richlew.is>
+"""
+richprompt.timer
+~~~~~~~~~~~~~~~~
+
+Object for timing execution.
+"""
 import time
 
 

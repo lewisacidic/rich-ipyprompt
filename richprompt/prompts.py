@@ -1,3 +1,14 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Copyright (c) 2019 Rich Lewis <opensource@richlew.is>
+"""
+richprompt.prompts
+~~~~~~~~~~~~~~~~~~
+
+Defining the prompts for richprompt.
+"""
+
 from IPython.terminal.prompts import Prompts, Token
 import datetime
 import os
