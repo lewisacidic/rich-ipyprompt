@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 if __name__ == "__main__":
     setup(
         name="richprompt",
-        version="0.0.1",
+        version="0.1.0",
         url="https://github.com/lewisacidic/richprompt",
         author="Rich Lewis",
         author_email="opensource@richlew.is",
