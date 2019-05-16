@@ -26,4 +26,3 @@ class Timer(object):
     def register(self):
         self.shell.events.register("pre_execute", self.pre_execute)
         self.shell.events.register("post_execute", self.post_execute)
-
