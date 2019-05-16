@@ -18,5 +18,5 @@ __copyright__ = "Copyright 2019, Rich Lewis"
 __license__ = "MIT"
 __version__ = '0.0.1'
 __maintainer__ = "Rich Lewis"
-__email__ "opensource@richlew.is"
+__email__ = "opensource@richlew.is"
 
