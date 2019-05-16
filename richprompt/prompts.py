@@ -78,7 +78,11 @@ class RichPrompts(Prompts):
         return (Token.Prompt, " >>> ")
 
     def first_line_tokens(self):
-        tokens = [*self.path_tokens(), *self.execution_time_tokens()]
+        tokens = self.path_tokens()
+        ett = self.execution_time_tokens()
+        if tokens and ett:
+            tokens += [(Token.Prompt, " ")]
+        tokens += ett
         if len(tokens):
             tokens += [(Token.Prompt, "\n")]
         return tokens
