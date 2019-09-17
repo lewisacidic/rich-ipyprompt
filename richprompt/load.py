@@ -10,7 +10,15 @@ A means of loading richprompt without magic.
 """
 
 from IPython import get_ipython
-from richprompt import RichPrompts
+from . import magic
+
 
 ip = get_ipython()
-ip.prompts = RichPrompts(ip)
+
+
+def load():
+    magic.load_ipython_extension(ip)
+
+
+def unload():
+    magic.unload_ipython_extension(ip)
