@@ -15,4 +15,4 @@ requirements:
   run:
     - python
     - ipython
-
+    - nord-pygments
