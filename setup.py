@@ -14,4 +14,7 @@ if __name__ == "__main__":
         keywords=["ipython", "prompt"],
         packages=find_packages(),
         install_requires=["ipython"],
+        entry_points={
+            "ipython_startup_hook": "richprompt = richprompt.startup:load"
+        }
     )
