@@ -16,5 +16,8 @@ if __name__ == "__main__":
         install_requires=["ipython"],
         entry_points={
             "ipython_startup_hook": "richprompt = richprompt.startup:load"
+        },
+        extras_require={
+            "hook": ["ipython-startup-hook"]
         }
     )
