@@ -9,9 +9,11 @@ richprompt
 A better prompt for the IPython interactive shell.
 """
 
-from .load import load
-from .magic import load_ipython_extension, unload_ipython_extension
 from .prompts import RichPrompts
+from .magic import load_ipython_extension
+from .magic import unload_ipython_extension
+from .startup import load
+from .startup import unload
 from .timer import Timer
 
 __author__ = "Rich Lewis"

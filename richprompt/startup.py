@@ -13,12 +13,11 @@ from IPython import get_ipython
 from . import magic
 
 
-ip = get_ipython()
-
-
 def load():
-    magic.load_ipython_extension(ip)
+    """Load the prompt for the currently active IPython shell."""
+    magic.load_ipython_extension(get_ipython())
 
 
 def unload():
-    magic.unload_ipython_extension(ip)
+    """Unload the prompt for the currently active IPython shell."""
+    magic.unload_ipython_extension(get_ipython())
