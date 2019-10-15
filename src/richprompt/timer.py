@@ -1,17 +1,14 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2019 Rich Lewis <opensource@richlew.is>
-"""
-richprompt.timer
-~~~~~~~~~~~~~~~~
-
-Object for timing execution.
-"""
+# Copyright (c) 2019 Rich Lewis
+# License: MIT license
+"""Timing execution."""
 import time
 
 
 class Timer(object):
+    """Object for keeping track of execution time."""
     def __init__(self, ipython):
         self.shell = ipython
         self.time = time.time()

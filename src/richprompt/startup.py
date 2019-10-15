@@ -1,13 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2019 Rich Lewis <opensource@richlew.is>
-"""
-richprompt.load
-~~~~~~~~~~~~~~~
-
-A means of loading richprompt without magic.
-"""
+# Copyright (c) 2019 Rich Lewis
+# License: MIT
+"""Load hooks for the prompt."""
 
 from IPython import get_ipython
 from . import magic

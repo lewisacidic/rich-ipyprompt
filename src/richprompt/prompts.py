@@ -1,13 +1,9 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Copyright (c) 2019 Rich Lewis <opensource@richlew.is>
-"""
-richprompt.prompts
-~~~~~~~~~~~~~~~~~~
-
-Defining the prompts for richprompt.
-"""
+# Copyright (c) 2019 Rich Lewis
+# License: MIT license
+"""Implement the prompts for richprompt."""
 
 from IPython.terminal.prompts import Prompts, Token
 import datetime
@@ -17,6 +13,7 @@ from .timer import Timer
 
 
 class RichPrompts(Prompts):
+    """An advanced prompt for IPython."""
     def __init__(self, *args, minimum_time_delta=5, **kwargs):
         super().__init__(*args, **kwargs)
         self.start_path = self.curpath()
@@ -24,6 +21,7 @@ class RichPrompts(Prompts):
         Timer(self.shell).register()
 
     def vi_token(self):
+        """Get pygments token for the current VI mode."""
         if (
             getattr(self.shell.pt_app, "editing_mode", None) == "VI"
             and self.shell.prompt_includes_vi_mode
@@ -41,6 +39,7 @@ class RichPrompts(Prompts):
 
     @staticmethod
     def curpath():
+        """Get the current path."""
         home = os.path.expanduser("~")
         curdir = os.getcwd()
         if curdir == home:
@@ -51,6 +50,7 @@ class RichPrompts(Prompts):
             return curdir
 
     def path_tokens(self):
+        """Tokens for the current path."""
         curpath = self.curpath()
         if self.start_path != curpath:
             return [(Token.PromptPath, curpath)]
@@ -59,6 +59,7 @@ class RichPrompts(Prompts):
 
     @staticmethod
     def format_time(t):
+        """Convert an execution time into easily readable format."""
         days, remainder = divmod(t, 60 * 60 * 24)
         hours, remainder = divmod(remainder, 60 * 60)
         minutes, remainder = divmod(remainder, 60)
@@ -76,6 +77,7 @@ class RichPrompts(Prompts):
         return ans
 
     def execution_time_tokens(self):
+        """Produce pygments tokens for the execution time of the previous command."""
         time_taken = self.shell.user_ns.get("time_taken")
         if time_taken and time_taken > self.minimum_time_delta:
             return [
@@ -86,9 +88,11 @@ class RichPrompts(Prompts):
             return []
 
     def prompt_token(self):
+        """The pygments token for the prompt character."""
         return (Token.Prompt, " >>> ")
 
     def first_line_tokens(self):
+        """The tokens for the first line."""
         tokens = self.path_tokens()
         ett = self.execution_time_tokens()
         if tokens and ett:
@@ -99,4 +103,5 @@ class RichPrompts(Prompts):
         return tokens
 
     def in_prompt_tokens(self):
+        """The tokens for an input line."""
         return [*self.first_line_tokens(), self.vi_token(), self.prompt_token()]
