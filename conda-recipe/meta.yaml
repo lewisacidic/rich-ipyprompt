@@ -8,7 +8,7 @@ source:
   path: ../
 
 build:
-    script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -18,4 +18,14 @@ requirements:
   run:
     - python
     - ipython
-    - nord-pygments
+  
+  test:
+    - pytest
+    - pytest-cov
+
+about:
+  home: {{ data["url"] }}
+  license: {{ data["license"] }}
+  license_file: LICENSE
+  summary: {{ data["description"] }}
+  dev_url: {{ data["project_urls"]["Source"] }}
